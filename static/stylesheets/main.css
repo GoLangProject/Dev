@@ -1,3 +1,12 @@
-body {color: blue}
+body {
+  color: purple;
+  background-color: #F4EADE;
+  margin: 0 auto;
+  padding: 0;
+}
 
-
+#head {
+  background-color: #2988BC;
+  width: 100%;
+  height: 100px;
+}
