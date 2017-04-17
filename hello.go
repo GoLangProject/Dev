@@ -13,7 +13,7 @@ func main() {
   http.Handle("/static/", http.StripPrefix("/static/", fs))
   http.HandleFunc("/", serveTemplate)
 
-  log.Println("Listening...")
+  log.Println("Listening...on 3000")
   http.ListenAndServe(":3000", nil)
 }
 

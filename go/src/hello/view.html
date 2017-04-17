@@ -1,5 +1,45 @@
-<h1>{{.Title}}</h1>
+<style type="text/css" media="screen">
+  body{
+  color: purple;
+  background-color: #F4EADE;
+  margin: 0 auto;
+  padding: 0;
+  color: black;
+  font-size: 18px;
+}
+
+form{
+  margin: 0 auto;
+}
+
+h1{
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#submitski{
+  border-radius: .5rem;
+  outline: none;
+  width: 20%;
+  border: .1vw solid white;
+  line-height: 20px;
+  cursor: pointer;
+  font-size: 1.3em;
+  background: #0080ff;
+}
+
+#head{
+font-size: 3em;
+}
+
+</style>
+
+<center>
+<h1 id="head">{{.Title}}</h1>
 
 <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
-<a href="/view/PageName">PageName</a>
+<a href="/view/Pagenamel">PageName</a>
 <div>{{printf "%s" .Body}}</div>
+
+
+</center>

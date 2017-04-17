@@ -1,5 +1,4 @@
 
-
 package main
 
 import (
@@ -7,7 +6,24 @@ import (
 	"io/ioutil"
 	"net/http"
 	"regexp"
+
+	"log"
 )
+
+
+func main() {
+	http.HandleFunc("/view/", makeHandler(viewHandler))
+	http.HandleFunc("/edit/", makeHandler(editHandler))
+	http.HandleFunc("/save/", makeHandler(saveHandler))
+
+	http.ListenAndServe(":8080", nil)
+	 log.Println("Listening...on 8080")
+
+}
+
+
+
+
 
 type Page struct {
 	Title string
@@ -63,7 +79,15 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+
 }
+
+
+
+
+
+
+
 
 var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 
@@ -78,10 +102,3 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 	}
 }
 
-func main() {
-	http.HandleFunc("/view/", makeHandler(viewHandler))
-	http.HandleFunc("/edit/", makeHandler(editHandler))
-	http.HandleFunc("/save/", makeHandler(saveHandler))
-
-	http.ListenAndServe(":8080", nil)
-}

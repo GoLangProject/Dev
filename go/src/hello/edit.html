@@ -1,6 +1,52 @@
-<h1>Editing {{.Title}}</h1>
+<style type="text/css" media="screen">
+  body{
+  color: purple;
+  background-color: #F4EADE;
+  margin: 0 auto;
+  padding: 0;
+  color: black;
+  font-size: 18px;
+}
+
+form{
+  margin: 0 auto;
+}
+
+h1{
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#submitski{
+  border-radius: .5rem;
+  outline: none;
+  width: 20%;
+  border: .1vw solid white;
+  line-height: 20px;
+  cursor: pointer;
+  font-size: 1.3em;
+  background: #0080ff;
+}
+
+#head{
+font-size: 3em;
+}
+
+</style>
+
+
+  <link rel="stylesheet" href="/static/stylesheets/main.css">
+<center>
+<body>
+<br>
+<h1 id="head">Editing {{.Title}}</h1>
 
 <form action="/save/{{.Title}}" method="POST">
-<div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
-<div><input type="submit" value="Save"></div>
+<div><textarea name="body" rows="20" cols="80" style="max-width: 500px; min-width: 100px; min-height: 300px; max-height: 300px" >{{printf "%s" .Body}}</textarea></div>
+<br>
+<div><input type="submit" value="Save" id="submitski"></div>
 </form>
+
+
+</body>
+<center>
